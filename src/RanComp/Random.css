@@ -15,7 +15,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    transition: all 0.3s ease-in-out;
   }
 
 #card{
@@ -62,18 +61,19 @@ body {
     border:none;
     border-radius:3px;
     color:#fff;
+    background-color:#333;
     outline:none;
     font-size:0.85em;
     padding: 8px 18px 6px 18px;
     margin-top:30px;
     opacity:1;
     cursor:pointer;
-    border: none;
   }
 
   #twi-quote, #tum-quote {
     float:left;
     padding:0px;
+    padding-top:8px;
     text-align:center;
     font-size:1.2em;
     margin-right:5px;
@@ -98,16 +98,4 @@ body {
     font-weight:500;
     text-decoration:none;
     color:#fff;
-  }
-
-  @media only screen and (max-width: 560px){
-    #card{
-      margin-left: 110px;
-      width: 200px;
-    }
-
-    .footer{
-      margin-left: 155px;
-      font-size: 20px;
-    }
   }

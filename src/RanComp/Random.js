@@ -12,8 +12,8 @@ class App extends Component {
     super(props)
   
     this.state = {
-       quotes: "",
-       ranQuotes: "",
+       quotes: null,
+       ranQuotes: null,
        color: null
     }
     this.quoteHandler = this.quoteHandler.bind(this);
@@ -25,12 +25,12 @@ class App extends Component {
     .then(data => {
       this.setState({
         quotes: data.quotes
-      },this.quoteHandler)
+      })
     });
     this.applyColor();
     
   }
-  
+
   /* Color Generation */
   componentDidUpdate(prevProps, prevState) {
     this.applyColor();
@@ -64,30 +64,25 @@ quoteHandler(){
 
 
   render() {
-    
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${this.state.ranQuotes.quote}-${this.state.ranQuotes.author}`
-    const tumbUrl =`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=${this.state.ranQuotes.quote}&content=${this.state.ranQuotes.author}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`
     return (
       <div>
-        
-      <div className="card" id="card">
+      <div className="card col-12 col-md-6" id="card">
         <div className="quote-text">
           <FaQuoteLeft value={{id: 'quote-icon'}}/>
           {'  '}
           { this.state.ranQuotes !== null &&  this.state.ranQuotes.quote}
-          
         </div>
         <div className="quote-author">
            - {this.state.ranQuotes !== null && this.state.ranQuotes.author}
         </div>
         <div className="buttons" id="buttons">
-          <a href={tweetUrl} target="_blank"><button className="button" id="twi-quote"><FaTwitter /></button></a>
-          <a href={tumbUrl} target="_blank"><button className="button" id="tum-quote"><FaTumblr /></button></a>
+          <a href="twitter.com/intent/tweet"><button className="button" id="twi-quote"><FaTwitter /></button></a>
+          <a href=""><button className="button" id="tum-quote"><FaTumblr /></button></a>
           <button className="button" id="new-quote" onClick={this.quoteHandler}>new quote</button>
         </div>
       </div>
       
-      <div class="footer"> by <a href="https://codepen.io/shaw12-the-sans/"> Mohd Yasir Hussain</a></div>
+      <div class="footer"> by <a href="https://codepen.io/shaw12-the-sans/">Shaw</a></div>
       </div>
     )
   }
